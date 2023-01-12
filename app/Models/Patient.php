@@ -18,12 +18,12 @@ class Patient extends Model
         'owner_id',
     ];
 
-    public function owner() :BelongsTo
+    public function owner(): BelongsTo
     {
         return $this->belongsTo(Owner::class);
     }
 
-    public function treatments() :HasMany
+    public function treatments(): HasMany
     {
         return $this->hasMany(Treatment::class);
     }

@@ -13,7 +13,7 @@ class PatientCount extends BaseWidget
         return [
             Card::make('Male', Patient::query()->where('gender', 'male')->count()),
             Card::make('Female', Patient::query()->where('gender', 'female')->count()),
-            Card::make('Unknown', Patient::query()->where('gender', 'unknown')->count())
+            Card::make('Unknown', Patient::query()->where('gender', 'unknown')->count()),
         ];
     }
 }

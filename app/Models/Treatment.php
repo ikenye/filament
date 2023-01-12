@@ -22,7 +22,7 @@ class Treatment extends Model
         'price',
     ];
 
-    public function patient() :BelongsTo
+    public function patient(): BelongsTo
     {
         return $this->belongsTo(Patient::class);
     }
