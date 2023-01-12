@@ -3,9 +3,9 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Treatment;
+use Filament\Widgets\LineChartWidget;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
-use Filament\Widgets\LineChartWidget;
 
 class TreatmentsChart extends LineChartWidget
 {
@@ -21,7 +21,7 @@ class TreatmentsChart extends LineChartWidget
             ->perMonth()
             ->count();
 
-            // dd($data);
+        // dd($data);
 
         return [
             'datasets' => [
@@ -30,7 +30,7 @@ class TreatmentsChart extends LineChartWidget
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],
-            'labels' => $data->map(fn (TrendValue $value) => $value->date ),
+            'labels' => $data->map(fn (TrendValue $value) => $value->date),
         ];
     }
 }

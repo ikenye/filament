@@ -3,10 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PatientResource\Pages;
-use App\Filament\Resources\PatientResource\RelationManagers;
 use App\Filament\Resources\PatientResource\RelationManagers\TreatmentsRelationManager;
 use App\Models\Patient;
-use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -16,8 +14,6 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PatientResource extends Resource
 {
@@ -59,7 +55,7 @@ class PatientResource extends Resource
                         TextInput::make('phone')
                             ->label('Telephone Number')
                             ->tel()
-                            ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
+                            ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/'),
                     ])
                     ->relationship('owner', 'name'),
             ]);
@@ -75,7 +71,7 @@ class PatientResource extends Resource
                 TextColumn::make('dob')->label('Date of Birth')
                     ->sortable()
                     ->date(),
-                TextColumn::make('owner.name')
+                TextColumn::make('owner.name'),
             ])
             ->filters([
                 Filter::make('gender'),

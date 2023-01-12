@@ -16,9 +16,8 @@ class Owner extends Model
         'phone',
     ];
 
-    public function patients() :HasMany
+    public function patients(): HasMany
     {
         return $this->hasMany(Patient::class);
     }
-
 }
